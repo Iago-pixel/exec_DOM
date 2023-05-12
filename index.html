@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="index.css" />
+
+    <title>MY TASK'S</title>
+  </head>
+  <body>
+    <header>
+      <h1>MY TASK'S</h1>
+      <div class="header__search-box">
+        <input placeholder="Pesquisar tarefa" class="header__search-input" />
+        <button class="header__search-button"><i class="fas fa-search"></i></i></button>
+      </div>
+    </header>
+    <main>
+        <section>
+            <h2 class="add-box__title">Inserir tarefa</h2>
+            <div class="add-box__inputs">
+                <input type="text" placeholder="Digitar título da tarefa">
+                <select name="select">
+                    <option value="0">Selecionar tipo</option>
+                    <option value="1">normal</option>
+                    <option value="2">prioritário</option>
+                    <option value="3">urgente</option>
+                </select>
+            </div>
+            <button class="add-box__button">Adicionar Tarefa na Lista</button>
+        </section>
+        <section>
+            <h2>Tarefas</h2>
+            <ul id="tasks__list"></ul>
+        </section>
+    </main>
+    <script src="index.js"></script>
+    <script
+      src="https://kit.fontawesome.com/702599a238.js"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
