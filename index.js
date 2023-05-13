@@ -21,44 +21,65 @@ let tasks = [
   },
 ];
 
-const urgentes = tasks.filter((task) => task.tipo == "urgente");
-const prioritarios = tasks.filter((task) => task.tipo == "prioritário");
-const normais = tasks.filter((task) => task.tipo == "normal");
-
-const tasksOrganized = [...urgentes, ...prioritarios, ...normais];
-
 const tasksList = document.getElementById("tasks__list");
 
-for (let i = 0; i < tasksOrganized.length; i++) {
-  const li = document.createElement("li");
+const addButton = document.querySelector(".add-box__button");
 
-  const div = document.createElement("div");
-  div.classList.add("task__infs");
+const loadList = () => {
+  tasksList.innerHTML = "";
 
-  const ball = document.createElement("div");
-  ball.classList.add("task__ball");
+  const urgentes = tasks.filter((task) => task.tipo == "urgente");
+  const prioritarios = tasks.filter((task) => task.tipo == "prioritário");
+  const normais = tasks.filter((task) => task.tipo == "normal");
 
-  const span = document.createElement("span");
-  span.innerText = tasksOrganized[i].titulo;
+  const tasksOrganized = [...urgentes, ...prioritarios, ...normais];
 
-  div.appendChild(ball);
-  div.appendChild(span);
+  for (let i = 0; i < tasksOrganized.length; i++) {
+    const li = document.createElement("li");
 
-  const button = document.createElement("button");
-  button.innerHTML = '<i class="fas fa-trash-alt"></i>';
+    const div = document.createElement("div");
+    div.classList.add("task__infs");
 
-  li.appendChild(div);
-  li.appendChild(button);
+    const ball = document.createElement("div");
+    ball.classList.add("task__ball");
 
-  tasksList.appendChild(li);
+    const span = document.createElement("span");
+    span.innerText = tasksOrganized[i].titulo;
 
-  li.classList.add("task");
+    div.appendChild(ball);
+    div.appendChild(span);
 
-  if (tasksOrganized[i].tipo == "normal") {
-    ball.classList.add("normal");
-  } else if (tasksOrganized[i].tipo == "prioritário") {
-    ball.classList.add("prioritario");
-  } else {
-    ball.classList.add("urgente");
+    const button = document.createElement("button");
+    button.innerHTML = '<i class="fas fa-trash-alt"></i>';
+
+    li.appendChild(div);
+    li.appendChild(button);
+
+    tasksList.appendChild(li);
+
+    li.classList.add("task");
+
+    if (tasksOrganized[i].tipo == "normal") {
+      ball.classList.add("normal");
+    } else if (tasksOrganized[i].tipo == "prioritário") {
+      ball.classList.add("prioritario");
+    } else {
+      ball.classList.add("urgente");
+    }
   }
-}
+};
+
+loadList();
+
+addButton.addEventListener("click", () => {
+  const inputName = document.getElementById("input-name");
+
+  const selectImportance = document.getElementById("select-importance");
+
+  const titulo = inputName.value;
+  const tipo = selectImportance.value;
+
+  tasks.push({ titulo, tipo });
+
+  loadList();
+});
