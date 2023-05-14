@@ -142,3 +142,10 @@ section {
 .urgente {
   background-color: red;
 }
+
+.error {
+  padding-left: 1rem;
+  margin: 0.5rem 0 0;
+  color: red;
+  font-size: 0.8rem;
+}

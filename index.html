@@ -19,21 +19,27 @@
     </header>
     <main>
         <section>
-            <h2 class="add-box__title">Inserir tarefa</h2>
-            <div class="add-box__inputs">
-                <input type="text" placeholder="Digitar título da tarefa" id="input-name">
-                <select name="select" id="select-importance">
-                    <option value="0">Selecionar tipo</option>
-                    <option value="normal">normal</option>
-                    <option value="prioritário">prioritário</option>
-                    <option value="urgente">urgente</option>
-                </select>
+          <h2 class="add-box__title">Inserir tarefa</h2>
+          <div class="add-box__inputs">
+            <div>
+              <input type="text" placeholder="Digitar título da tarefa" id="input-name">
+              <p class="error" id="titleError"></p>
             </div>
-            <button class="add-box__button">Adicionar Tarefa na Lista</button>
+            <div>
+              <select name="select" id="select-importance">
+                <option value="0">Selecionar tipo</option>
+                <option value="normal">normal</option>
+                <option value="prioritário">prioritário</option>
+                <option value="urgente">urgente</option>
+              </select>
+              <p class="error" id="typeError"></p>
+            </div>
+          </div>
+          <button class="add-box__button">Adicionar Tarefa na Lista</button>
         </section>
         <section>
-            <h2>Tarefas</h2>
-            <ul id="tasks__list"></ul>
+          <h2>Tarefas</h2>
+          <ul id="tasks__list"></ul>
         </section>
     </main>
     <script src="index.js"></script>

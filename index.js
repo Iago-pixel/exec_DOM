@@ -72,6 +72,10 @@ const loadList = () => {
 loadList();
 
 addButton.addEventListener("click", () => {
+  const titleError = document.getElementById("titleError");
+
+  const typeError = document.getElementById("typeError");
+
   const inputName = document.getElementById("input-name");
 
   const selectImportance = document.getElementById("select-importance");
@@ -79,7 +83,21 @@ addButton.addEventListener("click", () => {
   const titulo = inputName.value;
   const tipo = selectImportance.value;
 
-  tasks.push({ titulo, tipo });
+  if (titulo == "") {
+    titleError.innerText = "Campo obrigatório";
+  } else {
+    titleError.innerText = "";
+  }
 
-  loadList();
+  if (tipo == "0") {
+    typeError.innerText = "Campo obrigatório";
+  } else {
+    typeError.innerText = "";
+  }
+
+  if (titulo != "" && tipo != "0") {
+    tasks.push({ titulo, tipo });
+
+    loadList();
+  }
 });
